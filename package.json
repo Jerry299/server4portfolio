@@ -1,0 +1,30 @@
+{
+  "name": "server4portfolio",
+  "version": "1.0.0",
+  "description": "A server for my portfolio app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jerry299/server4portfolio.git"
+  },
+  "author": "Joseph Chinemerem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jerry299/server4portfolio/issues"
+  },
+  "homepage": "https://github.com/Jerry299/server4portfolio#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19",
+    "nodemailer": "^6.5.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
+  }
+}
