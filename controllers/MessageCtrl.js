@@ -30,7 +30,7 @@ exports.postMessage = async (req, res) => {
     const newMessage = new Message({ name, email, contactmessage });
     const response = await newMessage.save();
 
-    res.status(200).json({ message: "Message Sent Successfully,Thank You" });
+    res.status(200).json({ message: "Message Sent,I'll Be In Touch Shortly." });
   } catch (error) {
     console.log(error);
     res
