@@ -68,3 +68,7 @@ exports.postMessage = async (req, res) => {
       .json({ message: "Unable to Send Message,Try Again Please" });
   }
 };
+
+exports.getHome = (req, res) => {
+  res.status(200).json({ message: "Welcome to portfolio server" });
+};
