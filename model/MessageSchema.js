@@ -13,6 +13,7 @@ const Message = new mongoose.Schema({
     required: true,
     type: String,
   },
+  timeSent: { type: String },
 });
 
 module.exports = mongoose.model("Message", Message);

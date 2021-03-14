@@ -1,4 +1,6 @@
 const Message = require("../model/MessageSchema");
+const nodemailer = require("nodemailer");
+require("dotenv").config({ path: "./config.env" });
 
 exports.postMessage = async (req, res) => {
   const { name, email, contactmessage } = req.body;
@@ -27,7 +29,35 @@ exports.postMessage = async (req, res) => {
   // validation ends
 
   try {
-    const newMessage = new Message({ name, email, contactmessage });
+    const newMessage = new Message({
+      name,
+      email,
+      contactmessage,
+      timeSent: new Date(),
+    });
+    // send message to my mail
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: email,
+      to: process.env.EMAIL,
+      subject: `Portfolio Message from ${email}.`,
+      text: contactmessage,
+    };
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(info);
+      }
+    });
+
     const response = await newMessage.save();
 
     res.status(200).json({ message: "Message Sent,I'll Be In Touch Shortly." });
