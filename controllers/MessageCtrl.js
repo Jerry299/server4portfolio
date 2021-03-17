@@ -37,7 +37,8 @@ exports.postMessage = async (req, res) => {
     });
     // send message to my mail
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      // service: "gmail",
+      host: "smtp.mail.yahoo.com",
       port: 465,
       secure: true,
       auth: {
@@ -54,7 +55,7 @@ exports.postMessage = async (req, res) => {
     };
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
-        throw new Error("Cannot send Message");
+        res.status(400).json({ message: "MEssage Not Sent." });
       } else {
         console.log(info);
       }

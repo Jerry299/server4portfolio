@@ -35,6 +35,7 @@ mongoose
   .then(() => console.log("MongoDB connected Successfully"))
   .catch((error) => console.log(error));
 
+console.log(process.env.DATABASE);
 //endpoints
 app.use("/", MessageRoute);
 
