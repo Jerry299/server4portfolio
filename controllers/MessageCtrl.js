@@ -38,6 +38,8 @@ exports.postMessage = async (req, res) => {
     // send message to my mail
     const transporter = nodemailer.createTransport({
       service: "gmail",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS,
