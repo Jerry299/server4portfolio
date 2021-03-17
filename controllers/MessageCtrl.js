@@ -54,7 +54,7 @@ exports.postMessage = async (req, res) => {
     };
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
-        console.log(err);
+        throw new Error("Cannot send Message");
       } else {
         console.log(info);
       }
