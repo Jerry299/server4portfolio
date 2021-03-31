@@ -40,25 +40,24 @@ exports.postMessage = async (req, res) => {
     console.log("email is equal to ", process.env.EMAIL);
     console.log("entry is equal to ", process.env.PASS);
     const transporter = nodemailer.createTransport({
-      // service: "gmail",
-      host: "smtp.mail.yahoo.com",
+      service: "gmail",
       port: 465,
       secure: true,
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASS,
+        user: "josephchinemerem564@gmail.com",
+        pass: "myWihu3B4E_",
       },
     });
 
     const mailOptions = {
       from: email,
-      to: process.env.EMAIL,
+      to: "josephchinemerem564@gmail.com",
       subject: `Portfolio Message from ${email}.`,
       text: contactmessage,
     };
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
-        res.status(400).json({ message: "MEssage Not Sent." });
+        console.log(err);
       } else {
         console.log(info);
       }
