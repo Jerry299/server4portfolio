@@ -8,23 +8,23 @@ exports.postMessage = async (req, res) => {
   let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   // do simple validation
   if (name === "") {
-    return res.status(400).json({ message: "Name Should Not Be Blank" });
+    return res.status(400).json({ error: "Name Should Not Be Blank" });
   }
   if (!regName.test(name)) {
     return res
       .status(400)
-      .json({ message: "Incorrect Name Format,Add a first name" });
+      .json({ error: "Incorrect Name Format,Add a first name" });
   }
   if (!email || email === "") {
-    return res.status(400).json({ message: "Email Should Not Be Blank" });
+    return res.status(400).json({ error: "Email Should Not Be Blank" });
   }
   if (!emailPattern.test(email)) {
-    return res.status(400).json({ message: "Invalid Email Format" });
+    return res.status(400).json({ error: "Invalid Email Format" });
   }
   if (!contactmessage || contactmessage === "") {
     return res
       .status(400)
-      .json({ message: "Please Leave A Message,Thank You" });
+      .json({ error: "Please Leave A Message,Thank You" });
   }
   // validation ends
 
@@ -68,9 +68,7 @@ exports.postMessage = async (req, res) => {
     res.status(200).json({ message: "Message Sent,I'll Be In Touch Shortly." });
   } catch (error) {
     console.log(error);
-    res
-      .status(400)
-      .json({ message: "Unable to Send Message,Try Again Please" });
+    res.status(400).json({ error: "Unable to Send Message,Try Again Please" });
   }
 };
 
