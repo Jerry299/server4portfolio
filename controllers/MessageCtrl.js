@@ -35,8 +35,8 @@ exports.postMessage = async (req, res) => {
     });
     // send message to my mail
 
-    console.log("email is equal to ", process.env.EMAIL);
-    console.log("entry is equal to ", process.env.PASS);
+    // console.log("email is equal to ", process.env.EMAIL);
+    // console.log("entry is equal to ", process.env.PASS);
     const transporter = nodemailer.createTransport({
       service: "gmail",
       port: 465,
