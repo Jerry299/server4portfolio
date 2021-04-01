@@ -22,9 +22,7 @@ exports.postMessage = async (req, res) => {
     return res.status(400).json({ error: "Invalid Email Format" });
   }
   if (!contactmessage || contactmessage === "") {
-    return res
-      .status(400)
-      .json({ error: "Please Leave A Message,Thank You" });
+    return res.status(400).json({ error: "Please Leave A Message,Thank You" });
   }
   // validation ends
 
